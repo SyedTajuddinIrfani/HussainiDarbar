@@ -1,0 +1,4 @@
+- [ ] Enhance media queries in html/style.css for mobile responsiveness (adjust padding, margins, font sizes, column stacking)
+- [ ] Update css/style.css to add media queries for mobile (adjust navigation, card image height, welcome section)
+- [ ] Ensure images are responsive across sections
+- [ ] Test and verify changes for mobile screens
