@@ -653,6 +653,20 @@ body {
         justify-content: center;
     }
 
+    .welcome .col-md-7 {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        margin-top: 50px !important;
+        display: flex;
+        justify-content: center;
+    }
+
+    .welcome .col-md-4 {
+        flex: 0 0 100%;
+        max-width: 100%;
+        text-align: center;
+    }
+
     .fatawa {
         padding-top: 5px;
         padding-bottom: 20px;
