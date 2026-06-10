@@ -264,6 +264,7 @@ body {
 .footer-bs .footer-nav ul.list li {
     padding: 5px 0px;
 }
+
 /* .footer-bs .footer-nav ul.lists li {
     padding: 5px 0px;
     padding-left: 155px;
@@ -770,19 +771,19 @@ body {
 
 }
 
-.icons a{
+.icons a {
     text-decoration: none;
     color: white;
 }
 
-.icons ion-icon{
+.icons ion-icon {
     color: white;
     font-size: 30px;
     padding-left: 14px;
     padding-top: 5px;
 }
 
-.icons ion-icon:hover{
+.icons ion-icon:hover {
     color: #ff7200;
 }
 
