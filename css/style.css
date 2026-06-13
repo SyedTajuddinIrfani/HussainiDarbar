@@ -16,9 +16,6 @@ div .logo a {
     color: #111;
     font-size: 40px;
     font-family: 'Taviraj', serif;
-
-
-
 }
 
 nav {
@@ -34,7 +31,6 @@ nav {
 
 nav .logo {
     color: rgb(0, 0, 0);
-
 }
 
 nav ul {
@@ -52,7 +48,6 @@ nav ul li a {
     color: black;
     text-decoration: none;
     font-size: 16px;
-    /* font-weight: 500; */
     padding: 8px 15px;
     border-radius: 5px;
     letter-spacing: 1px;
@@ -135,13 +130,19 @@ input[type="checkbox"] {
 /*----------------------*/
 /* wallpaper-start */
 .card-img {
-    height: 700px;
     width: 100%;
-
+    height: auto;
+    max-height: 70vh;
+    object-fit: cover;
 }
 
 /* wallpaper-end */
 /*----------------------*/
+.welcome .welcome-library {
+    margin-top: 200px;
+    padding-left: 100px;
+}
+
 .welcome {
     padding-top: 60px;
     padding-bottom: 60px;
@@ -187,13 +188,11 @@ input[type="checkbox"] {
     padding-top: 50px;
     padding-bottom: 50px;
     background: url(../images/bg-gray.png);
-
 }
 
 .fatawa h1 {
     color: #7FAC45;
 }
-
 
 .fatawas-box {
     border: 1px solid #7FAC45;
@@ -204,73 +203,55 @@ input[type="checkbox"] {
     margin-bottom: 10px;
 }
 
-/* Mobile responsiveness */
+/* Tablet */
+@media (min-width: 768px) and (max-width: 991px) {
+    .card-img {
+        max-height: 50vh;
+    }
+
+    .welcome .welcome-library {
+        margin-top: 40px;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
+/* Mobile */
 @media (max-width: 767px) {
+    body {
+        overflow-x: hidden;
+    }
+
     nav {
         padding: 0 20px;
     }
 
-    nav ul {
-        flex-direction: column;
-        position: absolute;
-        top: 80px;
-        left: -100%;
-        width: 100%;
-        height: calc(100vh - 80px);
-        background: #111;
-        text-align: center;
-        transition: 0.3s;
-    }
-
-    nav ul li {
-        margin: 20px 0;
-    }
-
-    nav ul li a {
-        font-size: 18px;
+    div .logo a {
+        font-size: 26px;
     }
 
     .card-img {
-        height: 400px;
+        max-height: 40vh;
     }
 
-    .welcome {
-        padding-top: 30px;
-        padding-bottom: 30px;
+    .welcome .welcome-library {
+        margin-top: 30px;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
+/* Small phones */
+@media (max-width: 576px) {
+    nav {
+        padding: 0 15px;
     }
 
-    .welcome-text h1 {
-        font-size: 24px;
-    }
-
-    .welcome-text h2 {
-        font-size: 20px;
-    }
-
-    .welcome-text p {
-        font-size: 14px;
+    div .logo a {
+        font-size: 22px;
     }
 
     .welcome-box {
-        margin: 5px;
-        padding: 15px 5px;
-    }
-
-    .welcome-box h3 {
-        font-size: 18px;
-    }
-
-    .welcome-box h4 {
-        font-size: 14px;
-    }
-
-    .fatawa {
-        padding-top: 20px;
-        padding-bottom: 20px;
-    }
-
-    .fatawas-box {
-        padding: 20px 10px;
-        margin-bottom: 20px;
+        margin: 8px 0;
     }
 }

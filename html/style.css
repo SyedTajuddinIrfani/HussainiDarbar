@@ -181,6 +181,9 @@ body {
 
 .monthly-magzine .thumbnail img {
     width: 100%;
+    max-width: 100%;
+    height: auto;
+    display: block;
 }
 
 .monthly-magzine .thumbnail p a {
@@ -643,23 +646,18 @@ body {
         font-size: 14px;
     }
 
-    .welcome .col-md-7 {
-        margin-top: 50px;
-        padding-left: 15px;
-        padding-right: 15px;
-        text-align: center;
-    }
-
-    .welcome .col-md-7 .row {
-        justify-content: center;
-    }
-
-    .welcome .col-md-7 {
-        padding-left: 0 !important;
-        padding-right: 0 !important;
+    .welcome .welcome-library {
         margin-top: 50px !important;
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+        text-align: center;
         display: flex;
         justify-content: center;
+    }
+
+    .welcome .welcome-library .row {
+        justify-content: center;
+        width: 100%;
     }
 
     .welcome .col-md-4 {
@@ -731,6 +729,23 @@ body {
         font-size: 24px;
         padding-left: 10px;
     }
+
+    .copyrights .pull-left,
+    .copyrights .pull-right {
+        float: none !important;
+        text-align: center;
+        width: 100%;
+    }
+
+    .footer-brand,
+    .footer-nav {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .icons {
+        margin-top: 10px;
+    }
 }
 
 
@@ -759,6 +774,10 @@ body {
         width: 100%;
     }
 
+    .monthly-magzine .col-md-3 {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
 
 }
 
