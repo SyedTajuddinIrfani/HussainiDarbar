@@ -180,7 +180,7 @@ body {
 .monthly-magzine {
     padding-top: 50px;
     padding-bottom: 50px;
-    background: #fff;
+    background: var(--bg-section-alt);
 }
 
 .monthly-magzine .thumbnail img {
