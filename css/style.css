@@ -1,4 +1,55 @@
-@import url('https://fonts.googleapis.com/css2?family=Taviraj:wght@500;600;700&family=Outfit:wght@400;500;600;700&display=swap');
+/* ==========================================
+   THEME VARIABLES & SYSTEM
+   ========================================== */
+:root {
+    --bg-primary: #fcfcfc;
+    --bg-secondary: #ffffff;
+    --bg-card: #ffffff;
+    --bg-section-alt: #f8faf6;
+    --text-primary: #333333;
+    --text-secondary: #555555;
+    --text-heading: #1a2b16;
+    --text-heading-sub: #2c3e50;
+    --brand-green: #7FAC45;
+    --brand-green-hover: #689335;
+    --nav-bg: #ffffff;
+    --nav-link-color: #2c3e50;
+    --nav-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+    --card-border: rgba(0, 0, 0, 0.06);
+    --card-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
+    --footer-bg: #1a2b16;
+    --footer-text: #e5e7eb;
+    --footer-muted: #9ca3af;
+    --toggle-bg: #f0f4eb;
+    --toggle-color: #1a2b16;
+    --toggle-border: #7FAC45;
+    --hr-bg: #7FAC45;
+}
+
+html.dark-theme {
+    --bg-primary: #121811;
+    --bg-secondary: #182017;
+    --bg-card: #1d261c;
+    --bg-section-alt: #151d14;
+    --text-primary: #e8ece8;
+    --text-secondary: #a3b8a3;
+    --text-heading: #f0f4f0;
+    --text-heading-sub: #c5d4c5;
+    --brand-green: #8ebc53;
+    --brand-green-hover: #a1cf64;
+    --nav-bg: #161e15;
+    --nav-link-color: #d1e0d1;
+    --nav-shadow: 0 2px 15px rgba(0, 0, 0, 0.5);
+    --card-border: rgba(142, 188, 83, 0.2);
+    --card-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+    --footer-bg: #0b100a;
+    --footer-text: #d1d5db;
+    --footer-muted: #8c939e;
+    --toggle-bg: #273425;
+    --toggle-color: #f1c40f;
+    --toggle-border: #8ebc53;
+    --hr-bg: #8ebc53;
+}
 
 html {
     scroll-behavior: smooth !important;
@@ -12,9 +63,10 @@ body {
     padding: 0;
     margin: 0;
     font-family: 'Outfit', sans-serif;
-    color: #333333;
+    color: var(--text-primary);
     overflow-x: hidden;
-    background-color: #fcfcfc;
+    background-color: var(--bg-primary);
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* ==========================================
@@ -25,20 +77,21 @@ header {
     top: 0;
     z-index: 10000;
     width: 100%;
-    background: #ffffff;
-    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
-    transition: all 0.3s ease;
+    background: var(--nav-bg);
+    box-shadow: var(--nav-shadow);
+    transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 
 nav {
     display: flex;
     height: 80px;
     width: 100%;
-    background: #ffffff;
+    background: var(--nav-bg);
     align-items: center;
     justify-content: space-between;
     padding: 0 5%;
     position: relative;
+    transition: background 0.3s ease;
 }
 
 nav .logo {
@@ -48,7 +101,7 @@ nav .logo {
 
 nav .logo a {
     text-decoration: none;
-    color: #1a2b16;
+    color: var(--text-heading);
     font-size: 28px;
     font-weight: 700;
     font-family: 'Taviraj', serif;
@@ -57,7 +110,7 @@ nav .logo a {
 }
 
 nav .logo a:hover {
-    color: #7FAC45;
+    color: var(--brand-green);
 }
 
 nav ul {
@@ -73,7 +126,7 @@ nav ul li {
 }
 
 nav ul li a {
-    color: #2c3e50;
+    color: var(--nav-link-color);
     text-decoration: none;
     font-size: 15px;
     font-weight: 600;
@@ -87,8 +140,42 @@ nav ul li a {
 nav ul li a.active,
 nav ul li a:hover {
     color: #ffffff !important;
-    background: #7FAC45;
+    background: var(--brand-green);
     box-shadow: 0 4px 10px rgba(127, 172, 69, 0.3);
+}
+
+nav ul li.theme-toggle-li {
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+}
+
+/* Theme Toggle Button */
+.theme-toggle-btn {
+    background: var(--toggle-bg);
+    color: var(--toggle-color);
+    border: 2px solid var(--toggle-border);
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 18px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    outline: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    z-index: 100002;
+}
+
+.theme-toggle-btn:hover {
+    transform: scale(1.1) rotate(15deg);
+    box-shadow: 0 4px 12px rgba(127, 172, 69, 0.35);
+}
+
+.theme-toggle-btn i {
+    transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
 }
 
 nav .menu-btn {
@@ -100,11 +187,11 @@ nav .menu-btn {
 }
 
 nav .menu-btn:hover {
-    background: #f0f4eb;
+    background: var(--toggle-bg);
 }
 
 nav .menu-btn i {
-    color: #1a2b16;
+    color: var(--text-heading);
     font-size: 26px;
     display: block;
     transition: transform 0.3s ease;
@@ -162,6 +249,13 @@ input[type="checkbox"]#click {
         margin: 10px 0;
     }
 
+    nav ul li.theme-toggle-li {
+        width: auto;
+        justify-content: center;
+        margin-top: 15px;
+        margin-left: 0;
+    }
+
     nav ul li a {
         width: 100%;
         font-size: 18px;
@@ -208,37 +302,41 @@ input[type="checkbox"]#click {
 /* ==========================================
    WELCOME / ABOUT US SECTION
    ========================================== */
+/* ==========================================
+   WELCOME / ABOUT US SECTION
+   ========================================== */
 .welcome {
     padding: 70px 0;
-    background-color: #ffffff;
+    background-color: var(--bg-secondary);
+    transition: background-color 0.3s ease;
 }
 
 .welcome-text h1 {
     font-family: 'Taviraj', serif;
     font-weight: 700;
     font-size: 36px;
-    color: #7FAC45;
+    color: var(--brand-green);
     margin-bottom: 10px;
 }
 
 .welcome-text h4 {
     font-size: 20px;
     font-weight: 600;
-    color: #2c3e50;
+    color: var(--text-heading-sub);
     margin-bottom: 15px;
 }
 
 .welcome-text h2 {
     font-size: 24px;
     font-weight: 600;
-    color: #1a2b16;
+    color: var(--text-heading);
     margin-bottom: 15px;
 }
 
 .welcome-text p {
     font-size: 16px;
     line-height: 1.7;
-    color: #555555;
+    color: var(--text-secondary);
     margin-bottom: 15px;
 }
 
@@ -305,21 +403,22 @@ input[type="checkbox"]#click {
    ========================================== */
 .monthly-magzine {
     padding: 70px 0;
-    background: #f8faf6;
+    background: var(--bg-section-alt);
+    transition: background 0.3s ease;
 }
 
 .monthly-magzine h1 {
     font-family: 'Taviraj', serif;
     font-weight: 700;
     font-size: 36px;
-    color: #7FAC45;
+    color: var(--brand-green);
     margin-bottom: 15px;
 }
 
 .monthly-magzine hr {
     width: 80px;
     height: 3px;
-    background: #7FAC45;
+    background: var(--brand-green);
     margin: 0 auto 20px auto;
     border: none;
     border-radius: 2px;
@@ -329,18 +428,19 @@ input[type="checkbox"]#click {
 .monthly-magzine p.text-center {
     max-width: 700px;
     margin: 0 auto 30px auto;
-    color: #666666;
+    color: var(--text-secondary);
     font-size: 16px;
     line-height: 1.6;
 }
 
 .thumbnail {
-    background: #ffffff;
+    background: var(--bg-card);
     border-radius: 12px;
     padding: 12px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    border: 1px solid var(--card-border);
+    box-shadow: var(--card-shadow);
     margin-bottom: 30px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease, border-color 0.3s ease;
     height: calc(100% - 30px);
     display: flex;
     flex-direction: column;
@@ -349,7 +449,7 @@ input[type="checkbox"]#click {
 
 .thumbnail:hover {
     transform: translateY(-6px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }
 
 .thumbnail p {
@@ -364,7 +464,7 @@ input[type="checkbox"]#click {
 }
 
 .thumbnail p a {
-    color: #7FAC45;
+    color: var(--brand-green);
     font-weight: 600;
     font-size: 13px;
     text-decoration: none;
@@ -373,13 +473,13 @@ input[type="checkbox"]#click {
 }
 
 .thumbnail p a:hover {
-    color: #5b832b;
+    color: var(--brand-green-hover);
     text-decoration: underline;
 }
 
 .btn-viewlibrary {
     padding: 12px 36px;
-    background: #7FAC45;
+    background: var(--brand-green);
     color: #ffffff !important;
     font-weight: 600;
     font-size: 15px;
@@ -393,7 +493,7 @@ input[type="checkbox"]#click {
 }
 
 .btn-viewlibrary:hover {
-    background: #689335;
+    background: var(--brand-green-hover);
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(127, 172, 69, 0.4);
 }
@@ -403,54 +503,55 @@ input[type="checkbox"]#click {
    ========================================== */
 .program-event {
     padding: 70px 0;
-    background: #ffffff;
+    background: var(--bg-secondary);
     text-align: center;
+    transition: background 0.3s ease;
 }
 
 .program-event h1 {
     font-family: 'Taviraj', serif;
     font-weight: 700;
     font-size: 36px;
-    color: #7FAC45;
+    color: var(--brand-green);
     margin-bottom: 15px;
 }
 
 .program-event p {
-    color: #666666;
+    color: var(--text-secondary);
     font-size: 16px;
     margin-bottom: 30px;
 }
 
 .fatawas-box {
-    border: none;
-    border-top: 4px solid #7FAC45;
+    border: 1px solid var(--card-border);
+    border-top: 4px solid var(--brand-green);
     border-radius: 12px;
     padding: 30px 22px;
-    background: #ffffff;
+    background: var(--bg-card);
     text-align: left;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+    box-shadow: var(--card-shadow);
     margin-bottom: 30px;
     height: calc(100% - 30px);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease, border-color 0.3s ease;
 }
 
 .fatawas-box:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }
 
 .fatawas-box h4 {
-    color: #7FAC45;
+    color: var(--brand-green);
     font-size: 20px;
     font-weight: 700;
     margin-bottom: 15px;
     text-align: center;
-    border-bottom: 1px dashed #e0e0e0;
+    border-bottom: 1px dashed var(--card-border);
     padding-bottom: 10px;
 }
 
 .fatawas-box p {
-    color: #444444;
+    color: var(--text-primary);
     font-size: 14px;
     line-height: 1.8;
     text-align: left;

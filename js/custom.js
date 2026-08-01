@@ -5,6 +5,41 @@ document.addEventListener('DOMContentLoaded', function () {
     const menuBtnIcon = document.querySelector('nav .menu-btn i');
     const navLinks = document.querySelectorAll('nav ul li a, .welcome-box a, .btn-viewlibrary');
 
+    // Theme Toggle Functionality
+    const themeToggleBtn = document.getElementById('theme-toggle');
+
+    function updateThemeUI(isDark) {
+        if (themeToggleBtn) {
+            themeToggleBtn.innerHTML = isDark ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+            themeToggleBtn.setAttribute('aria-label', isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode');
+            themeToggleBtn.setAttribute('title', isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode');
+        }
+    }
+
+    function initTheme() {
+        const isDark = document.documentElement.classList.contains('dark-theme');
+        updateThemeUI(isDark);
+    }
+
+    initTheme();
+
+    if (themeToggleBtn) {
+        themeToggleBtn.addEventListener('click', function () {
+            const isCurrentlyDark = document.documentElement.classList.contains('dark-theme');
+            const newThemeIsDark = !isCurrentlyDark;
+
+            if (newThemeIsDark) {
+                document.documentElement.classList.add('dark-theme');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                document.documentElement.classList.remove('dark-theme');
+                localStorage.setItem('theme', 'light');
+            }
+
+            updateThemeUI(newThemeIsDark);
+        });
+    }
+
     // Initialize WOW.js for scroll animations
     if (typeof WOW !== 'undefined') {
         new WOW({
